@@ -1,12 +1,13 @@
 for (let i = 0; i < document.querySelectorAll(".drum").length; i++) {
     document.querySelectorAll(".drum")[i].addEventListener("click", function() {
-        var pressedKey = this.innerHTML;
-        activateButton(pressedKey);
+        activateButton(this.innerHTML);
+        clickButton(this.innerHTML);
     });
 }
 
 document.addEventListener("keydown", function (event) {
     activateButton(event.key);
+    clickButton(event.key);
 });
 
 function activateButton(key) {
@@ -43,4 +44,9 @@ function activateButton(key) {
         default:
             break;
     }
+}
+
+function clickButton(key) {
+    var activeButton = document.querySelector("." + key);
+    activeButton.classList.add("pressed");
 }

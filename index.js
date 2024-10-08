@@ -49,4 +49,7 @@ function activateButton(key) {
 function clickButton(key) {
     var activeButton = document.querySelector("." + key);
     activeButton.classList.add("pressed");
+    setTimeout(function() {
+        activeButton.classList.remove("pressed");
+    }, 100)
 }
